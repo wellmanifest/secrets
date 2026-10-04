@@ -1,0 +1,22 @@
+{
+  "schema": "wellmanifest.secrets/vault-manifest/v1",
+  "version": 1,
+  "entries": [
+    {
+      "id": "bad-origin-entry",
+      "origin": "https://user:password@api.wfirma.pl/path/to/resource?query=1#hash",
+      "scope": {
+        "operations": ["accounting.read"],
+        "targets": ["provider:wfirma"]
+      },
+      "envelope": {
+        "schema": "wellmanifest.secrets/envelope/v1",
+        "version": 1,
+        "algorithm": "aes-256-gcm",
+        "iv": "v1u5U9kG0k1sLz3X",
+        "tag": "8rK0p3Zl9mNv2Wq1As7Dfw==",
+        "ciphertext": "kFhY7oE4LzWb3p=="
+      }
+    }
+  ]
+}

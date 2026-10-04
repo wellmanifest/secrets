@@ -1,0 +1,40 @@
+{
+  "schema": "wellmanifest.secrets/vault-manifest/v1",
+  "version": 1,
+  "entries": [
+    {
+      "id": "wfirma-accounting",
+      "origin": "https://api2.wfirma.pl",
+      "scope": {
+        "operations": [
+          "accounting.read",
+          "accounting.write",
+          "invoices.sync"
+        ],
+        "targets": [
+          "provider:wfirma",
+          "service:accounting"
+        ]
+      },
+      "envelope": {
+        "schema": "wellmanifest.secrets/envelope/v1",
+        "version": 1,
+        "algorithm": "aes-256-gcm",
+        "kdf": {
+          "type": "scrypt",
+          "salt": "c29tZS1zYWx0LWZvci10ZXN0"
+        },
+        "iv": "dGVzdC1pdi0xMmJ5dGVz",
+        "tag": "dGVzdC1hdXRoLXRhZy0xNmJ5",
+        "ciphertext": "ZW5jcnlwdGVkLWNvbnRlbnQ="
+      },
+      "masked_fields": [
+        "access_key",
+        "secret_key",
+        "company_id"
+      ],
+      "created_at": "2026-10-04T12:00:00Z",
+      "updated_at": "2026-10-04T14:52:00Z"
+    }
+  ]
+}

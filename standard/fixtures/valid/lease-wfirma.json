@@ -1,0 +1,13 @@
+{
+  "schema": "wellmanifest.secrets/lease/v1",
+  "lease_id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+  "entry_id": "wfirma-accounting",
+  "field": "secret_key",
+  "origin": "https://api2.wfirma.pl",
+  "actor": "service:willman-coordinator",
+  "purpose": "accounting.read",
+  "ticket_id": "ticket-001",
+  "expires_in_seconds": 60,
+  "granted_at": "2026-10-04T18:00:00Z",
+  "masked_preview": "••••••••"
+}

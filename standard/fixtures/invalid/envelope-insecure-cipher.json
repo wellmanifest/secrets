@@ -1,0 +1,8 @@
+{
+  "schema": "wellmanifest.secrets/envelope/v1",
+  "version": 1,
+  "algorithm": "aes-128-ecb",
+  "iv": "v1u5U9kG0k1sLz3X",
+  "tag": "8rK0p3Zl9mNv2Wq1As7Dfw==",
+  "ciphertext": "kFhY7oE4LzWb3p=="
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wellmanifest.dev/schemas/secrets/vault-manifest/v1",
+  "title": "Wellmanifest Vault Storage Manifest v1",
+  "description": "Origin-bound secret entry definitions, scopes, and masked metadata.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "entries"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "wellmanifest.secrets/vault-manifest/v1"
+    },
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "origin",
+          "scope",
+          "envelope"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,159}$",
+            "description": "Unique entry identifier."
+          },
+          "origin": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^(https?|imaps?|smtps?|postgres(ql)?):\\/\\/[^\\/\\?#]+$",
+            "description": "Normalized RFC 3986 network origin (scheme + host/port) without path, query, or credentials."
+          },
+          "scope": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["operations", "targets"],
+            "properties": {
+              "operations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9._*:/-]{0,199}$"
+                },
+                "minItems": 1,
+                "maxItems": 50
+              },
+              "targets": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9._*:/-]{0,199}$"
+                },
+                "minItems": 1,
+                "maxItems": 50
+              }
+            }
+          },
+          "envelope": {
+            "$ref": "credential-envelope.schema.json"
+          },
+          "masked_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Field names present in the entry, masked as •••••••• in public listings."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

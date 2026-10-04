@@ -1,0 +1,31 @@
+{
+  "schema": "wellmanifest.new-project/intent/v1",
+  "ticket": "ticket-001",
+  "summary": "Bootstrap wellmanifest/secrets domain pack",
+  "placement": {
+    "home": "wellmanifest",
+    "shape": "domain_pack",
+    "runtimeOwner": null,
+    "adopt": [
+      "wellmanifest/new-project",
+      "wellmanifest/authority-lifecycle",
+      "wellmanifest/account-runtime"
+    ]
+  },
+  "allowedPaths": [
+    "README.md",
+    "AGENTS.md",
+    "GEMINI.md",
+    "VERSION",
+    "CHANGELOG.md",
+    "TODO.md",
+    "dsl-manifest.json",
+    "schemas/**",
+    "docs/**",
+    "standard/**",
+    "project/ticket-001/**"
+  ],
+  "goal": {
+    "outcome": "Standardize encrypted credential envelopes, origin-bound storage, and bounded leases across Wellmanifest, Paxlet, and Subactor ecosystems."
+  }
+}

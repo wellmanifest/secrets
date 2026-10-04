@@ -1,0 +1,84 @@
+{
+  "$schema": "https://raw.githubusercontent.com/wellmanifest/dsl/b7d0595c95e5abbb48ebfdbdae0bc6d43c6f82f4/schemas/dsl-manifest.schema.json",
+  "schema": "wellmanifest.dsl/manifest/v1",
+  "id": "wellmanifest.secrets",
+  "name": "Wellmanifest Secrets & Credential Vault Standard",
+  "version": "0.1.0-dev",
+  "status": "experimental",
+  "purpose": "Normative standard for encrypted secret storage, credential envelopes (AES-256-GCM), origin-bound access policies, and bounded secret lease contracts across runtimes",
+  "domain": "secrets-credential-vault",
+  "owners": [
+    {
+      "kind": "repository",
+      "id": "github:wellmanifest/secrets",
+      "responsibilities": [
+        "semantics",
+        "validation",
+        "cryptography-policy",
+        "compatibility",
+        "security"
+      ]
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/wellmanifest/secrets",
+    "path": "schemas/credential-envelope.schema.json",
+    "declaredVersion": "1",
+    "canonical": "json-ast",
+    "mediaType": "application/schema+json",
+    "selectors": []
+  },
+  "ownedPaths": [
+    "dsl-manifest.json",
+    "schemas/**",
+    "standard/**",
+    "docs/**",
+    "README.md",
+    "AGENTS.md",
+    "GEMINI.md"
+  ],
+  "artifacts": [
+    {
+      "id": "schema:credential-envelope",
+      "path": "schemas/credential-envelope.schema.json",
+      "mediaType": "application/schema+json",
+      "purpose": "JSON Schema for authenticated AES-256-GCM credential envelopes"
+    },
+    {
+      "id": "schema:vault-manifest",
+      "path": "schemas/vault-manifest.schema.json",
+      "mediaType": "application/schema+json",
+      "purpose": "JSON Schema for origin-bound secret storage manifests and scopes"
+    },
+    {
+      "id": "schema:secret-lease",
+      "path": "schemas/secret-lease.schema.json",
+      "mediaType": "application/schema+json",
+      "purpose": "JSON Schema for bounded, short-lived secret lease receipts"
+    },
+    {
+      "id": "doc:specification",
+      "path": "docs/SPEC.md",
+      "mediaType": "text/markdown",
+      "purpose": "Normative cryptography, origin-binding, and storage requirements"
+    },
+    {
+      "id": "doc:architecture",
+      "path": "docs/ARCHITECTURE.md",
+      "mediaType": "text/markdown",
+      "purpose": "Cross-standard boundary matrix and vault federation comparison"
+    },
+    {
+      "id": "doc:adoption",
+      "path": "docs/ADOPTION_GUIDE.md",
+      "mediaType": "text/markdown",
+      "purpose": "Adoption and migration guidance for Willman, Willmux, Taskand, and Subactor"
+    },
+    {
+      "id": "tool:conformance",
+      "path": "standard/conformance.py",
+      "mediaType": "text/x-python",
+      "purpose": "Dependency-free reference conformance validator"
+    }
+  ]
+}
